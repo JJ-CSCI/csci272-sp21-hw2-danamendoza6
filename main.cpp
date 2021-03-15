@@ -15,7 +15,41 @@ public:
     void operator>>(std::string&);
     friend void operator<<(std::string&, Rot13&);
 };
+ 
+ Rot13::Rot13(std::string msg) {
+   for (msg = text) {
+     if(msg<'a'||msg>'z')
+     return false;
+     else msg=text;
+   }
 
+ }
+
+bool Rot13::operator! () {
+  if (text.size()==0)
+  return true;
+  else
+  return false;
+}
+
+void Rot13::operator>>(std::string&) {
+  for (int i=0; i<text.size(); i++) {
+  int text[i] = static_cast<int>(text[i]) - 97;
+  text[i] =(text[i]+13)%26;
+  int text[i] = static_cast<int>(text[i]) + 97;
+  }
+}
+
+void Rot13::operator<<(std::string&, Rot13&) {
+  int text[i]= static_cast<int>(text[i]) - 97;
+  text[i] = (text[i]+13)%26;
+  int text[i] = static_cast<int>(text[i] + 97);
+}
+
+int main() {
+  Rot13 cipher;
+}
+ 
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
